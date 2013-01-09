@@ -65,6 +65,7 @@ public class CordovaOnJsAlertBug extends DroidGap
 		public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
 			if(cordova.getActivity().isFinishing()){
 				Log.w(TAG, "Trying to alert while activity is finishing!! -> ignore");
+				result.cancel();
 				return true;
 			}
 			
